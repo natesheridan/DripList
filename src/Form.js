@@ -10,12 +10,6 @@ class Form extends Component {
     }
   }
 
-  handleChange = (event) => {
-    this.setState({
-      searchTerm: event.target.value
-    })
-    this.props.findMovie(this.state.searchTerm)
-  }
 render() {
   return (
     <header className="nav-bar">
@@ -26,7 +20,7 @@ render() {
               type='text'
               placeholder='Find your perfect cocktail here...'
               name='input'
-              onChange={this.handleChange}
+              onChange={this.props.handleChange}
             />
             </form>
     </header>
