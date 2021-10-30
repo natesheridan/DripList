@@ -9,7 +9,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      recipes: []
+      recipes: [],
+      foundRecipes: []
     }
   }
 
@@ -18,12 +19,17 @@ class App extends Component {
     .then(data => this.setState({recipes: data.drinks}))
   }
 
+  findRecipe = ((searchTerm) => {
+    const searchRegex = new RegExp(searchTerm, 'i')
+    this.setState({ foundRecipes: this.state.recipes.filter(recipe => recipe.name.match(searchRegex))})
+  })
+
   render() {
     return(
       <main className='App'>
       <nav className="nav-bar">
         <p className="nav-bar__app-title">The Drip List</p>
-        <Form />
+        <Form findRecipe={this.findRecipe} />
         <div className="nav-bar__language-logo">
         <img className='nav-bar__english' src={English} alt="English language"/>
         </div>

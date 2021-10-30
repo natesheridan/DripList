@@ -3,8 +3,8 @@ import './Form.css'
 
 
 class Form extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       searchTerm: ''
     }
@@ -14,6 +14,7 @@ class Form extends Component {
     this.setState({
       searchTerm: event.target.value
     })
+    this.props.findMovie(this.state.searchTerm)
   }
 render() {
   return (
