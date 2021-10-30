@@ -15,7 +15,7 @@ class App extends Component {
 
   componentDidMount() {
     getRecipes()
-    .then(data => this.setState({recipes: data}))
+    .then(data => this.setState({recipes: data.drinks}))
   }
 
   render() {
