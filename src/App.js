@@ -3,17 +3,19 @@ import Form from './Form.js';
 import RecipeContainer from './RecipeContainer.js';
 import './App.css';
 import English from './flag2.png'
+import { getRecipes } from './APICalls.js';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      recipes: [
-        { id: 1, name: 'Old Fashioned', ingredients: ["bourbon", "bitters", "orange zest"] },
-        { id: 2, name: 'Gimlet', ingredients: ["gin", "lime juice"] },
-        { id: 3, name: 'Dirty Martini', ingredients: ["gin", "vermouth", "olive juice"] }
-      ]
+      recipes: []
     }
+  }
+
+  componentDidMount() {
+    getRecipes()
+    .then(data => this.setState({recipes: data}))
   }
 
   render() {
