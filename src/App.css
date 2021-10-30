@@ -18,7 +18,10 @@ body {
   background-color: indigo;
 }
 
-
+.nav-bar__english {
+  height: 20px;
+  width: 20px;
+}
 
 .App-header {
   background-color: #282c34;

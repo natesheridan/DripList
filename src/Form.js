@@ -14,6 +14,7 @@ const Form = () => {
               placeholder='Find your perfect cocktail here...'
               name='input'
             />
+            </form>
         <nav className='nav-buttons'>
             <h5 className='home-header-button'>Home</h5>
         </nav>
