@@ -3,18 +3,13 @@ import './Form.css'
 
 
 class Form extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       searchTerm: ''
     }
   }
 
-  handleChange = (event) => {
-    this.setState({
-      searchTerm: event.target.value
-    })
-  }
 render() {
   return (
     <header className="nav-bar">
@@ -25,7 +20,7 @@ render() {
               type='text'
               placeholder='Find your perfect cocktail here...'
               name='input'
-              onChange={this.handleChange}
+              onChange={this.props.handleChange}
             />
             </form>
     </header>
