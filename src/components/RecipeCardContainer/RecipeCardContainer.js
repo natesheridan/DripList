@@ -1,6 +1,6 @@
 import React from 'react';
-import RecipeCard from './RecipeCard.js';
-import './RecipeContainer.css';
+import RecipeCard from '../RecipeCard/RecipeCard';
+import './RecipeCardContainer.css';
 
 const RecipeContainer = ({recipes}) => {
 
