@@ -1,8 +1,26 @@
 import React from 'react';
 import './Main.css';
+import { Route } from 'react-router-dom';
 
 const Main = () => {
 
+
+
+    return (
+      <>
+        <section className="main">
+          <Route
+            path="/"
+            render= {() => {
+              <Welcome/>
+            }}
+          />
+        </section>
+      </>
+    )
+}
+
+export default Main
 
 // Put Router URL with path corresponding to each URL endpoint we have
 // /HOME /DRINKS /SAVED /PROFILE
@@ -49,12 +67,3 @@ const Main = () => {
 //         This route rendered can just be a place to view/edit profile settings
 //             One component:
 //             Profile.js?
-
-    return(
-        <section className="main">
-            MAIN
-        </section>
-    )
-}
-
-export default Main
