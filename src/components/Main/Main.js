@@ -1,4 +1,5 @@
 import React from 'react';
+import Welcome from '../Welcome/Welcome.js'
 import './Main.css';
 import { Route } from 'react-router-dom';
 
@@ -7,38 +8,21 @@ const Main = () => {
 
 
     return (
-      <>
-        <section className="main">
+      <section className="main">
           <Route
-            path="/"
+            exact path="/"
             render= {() => {
-              <Welcome/>
+          return (<Welcome/>)
             }}
           />
         </section>
-      </>
+
     )
 }
 
 export default Main
 
-// Put Router URL with path corresponding to each URL endpoint we have
-// /HOME /DRINKS /SAVED /PROFILE
-//     -/home
-//         Home will be used to display the follwing components:
-//             + Welcome.js /////////////////////
-//                 Welcome is a two panel display that consists of:
-//                      +WelcomeDiv that is based off of the user.isAuthenticated
-//                         (!isAuth)
-//                             Login Button
-//                             Description of Website
-//                             Etc?
-//                         (isAuth)
-//                             Welcome User!
-//                             Quick navigation to users most clicked drink?
-//                             etc
-//                      +FeaturedDrinkdiv
-//                         This can just be a random drink
+
 //             + DrinkCardContainer.js //////////
 //                 Array to pass in as data is latest drinks from /latest API endpoint
 //                 DrinkCardContainer is ideally a component that can scale to any size
