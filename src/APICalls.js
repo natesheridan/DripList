@@ -1,4 +1,4 @@
-export const getRecipes = () => {
+export const getLatestRecipes = () => {
   return fetch('https://www.thecocktaildb.com/api/json/v2/9973533/latest.php')
   .then(response => response.json())
 }

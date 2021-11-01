@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Form from './Form.js';
-import RecipeContainer from './RecipeContainer.js';
+import Form from './components/Form/Form.js';
+import RecipeContainer from './components/RecipeCardContainer/RecipeCardContainer';
 import './App.css';
-import English from './flag2.png'
-import { getRecipes } from './APICalls.js';
+import AmericaIcon from './assets/flag2.png'
+import { getLatestRecipes } from './APICalls.js';
 
 class App extends Component {
   constructor() {
@@ -15,7 +15,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    getRecipes()
+    getLatestRecipes()
     .then(data => this.setState({recipes: data.drinks}))
     console.log(this.state.recipes)
   }
@@ -51,7 +51,7 @@ class App extends Component {
         <p className="nav-bar__app-title">The Drip List</p>
         <Form handleChange={this.handleChange} />
         <div className="nav-bar__language-logo">
-        <img className='nav-bar__english' src={English} alt="English language"/>
+        <img className='nav-bar__english' src={AmericaIcon} alt="English language"/>
         </div>
       </nav>
       {this.state.foundRecipes.length && <RecipeContainer  recipes={this.state.foundRecipes}/>, <RecipeContainer  recipes={this.state.recipes}/>}
