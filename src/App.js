@@ -4,6 +4,8 @@ import RecipeContainer from './components/RecipeCardContainer/RecipeCardContaine
 import './App.css';
 import AmericaIcon from './assets/flag2.png'
 import { getLatestRecipes } from './APICalls.js';
+import Header from './components/Header/Header'
+import Main from './components/Main/Main'
 
 class App extends Component {
   constructor() {
@@ -46,16 +48,20 @@ class App extends Component {
 
   render() {
     return(
-      <main className='App'>
-      <nav className="nav-bar">
-        <p className="nav-bar__app-title">The Drip List</p>
-        <Form handleChange={this.handleChange} />
-        <div className="nav-bar__language-logo">
-        <img className='nav-bar__english' src={AmericaIcon} alt="English language"/>
-        </div>
-      </nav>
-      {this.state.foundRecipes.length && <RecipeContainer  recipes={this.state.foundRecipes}/>, <RecipeContainer  recipes={this.state.recipes}/>}
-      </main>
+      <>
+        <Header />
+        <Main />
+        <main className='App'>
+        <nav className="nav-bar">
+          <p className="nav-bar__app-title">The Drip List</p>
+          <Form handleChange={this.handleChange} />
+          <div className="nav-bar__language-logo">
+          <img className='nav-bar__english' src={AmericaIcon} alt="English language"/>
+          </div>
+        </nav>
+        {this.state.foundRecipes.length && <RecipeContainer  recipes={this.state.foundRecipes}/>, <RecipeContainer  recipes={this.state.recipes}/>}
+        </main>
+      </>
     )
   }
 }
