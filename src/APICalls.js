@@ -7,5 +7,14 @@ export const getSingleRecipe = (id) => {
   return fetch(`https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=${id}`)
 }
 
-//https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=
-// ^^ big api with 627 drinks. I used the 'latest' list so it wasn't so huge.
+export const getVodkaRecipes = (id) => {
+  return fetch(`https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=vodka`)
+}
+
+export const getRumRecipes = (id) => {
+  return fetch(`https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=rum`)
+}
+
+export const getTequilaRecipes = (id) => {
+  return fetch(`https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=tequila`)
+}
