@@ -1,11 +1,51 @@
 import React from 'react';
 import Welcome from '../Welcome/Welcome.js'
+import RecipeDetails from '../RecipeDetails/RecipeDetails.js';
+import Form from '../Form/Form.js';
+import RecipeCardContainer from '../RecipeCardContainer/RecipeCardContainer.js';
 import './Main.css';
+import { getLatestRecipes } from '../../APICalls.js';
 import { Route } from 'react-router-dom';
-
+import { useEffect, useState } from 'react';
 const Main = () => {
 
+  const [allDrinks, setAllDrinks] = useState([])
+  const [filteredDrinks, setFilteredDrinks] = useState([])
+  const [searchValue, setSearchValue] = useState('')
 
+  React.useEffect(() => {
+    getLatestRecipes()
+    .then(data => {
+      setAllDrinks(data.drinks)
+    });
+  }, []);
+
+  const findRecipe = (searchTerm) => {
+    setFilteredDrinks(allDrinks.filter(recipe => recipe.strDrink.includes(searchTerm)))
+  }
+
+  const handleChange = (event) => {
+    setSearchValue(event.target.value)
+    findRecipe(searchValue)
+    }
+
+  const  displayRecipes= () => {
+      if (searchValue.length > 0) {
+        return (
+          <>
+          <Form handleChange={handleChange}/>
+          <RecipeCardContainer recipes={filteredDrinks}/>
+          </>
+        )
+      } else {
+        return (
+          <>
+          <Form handleChange={handleChange}/>
+          <RecipeCardContainer recipes={allDrinks}/>
+          </>
+        )
+      }
+    }
 
     return (
       <section className="main">
@@ -15,6 +55,14 @@ const Main = () => {
           return (<Welcome/>)
             }}
           />
+          <Route exact path="/drinks" render={displayRecipes}/>
+          <Route
+          exact path="/drinks/:id"
+          render={({match}) => {
+            const recipeToRender = allDrinks.find(recipe => recipe.idDrink === match.params.id);
+            return <RecipeDetails recipe={recipeToRender} />
+          }}
+        />
         </section>
 
     )
