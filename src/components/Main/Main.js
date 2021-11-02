@@ -1,10 +1,12 @@
 import React from 'react';
 import Welcome from '../Welcome/Welcome.js'
+import RecipeDetails from '../RecipeDetails/RecipeDetails.js';
 import './Main.css';
 import { Route } from 'react-router-dom';
 
 const Main = () => {
 
+  const [allDrinks, setAllDrinks] = React.useState(null)
 
 
     return (
