@@ -1,17 +1,17 @@
 import './RecipeDetails.css';
 import { useEffect, useState } from 'react';
-import { getSingleRecipe } from '../APICalls.js';
+import { getSingleRecipe } from '../../APICalls.js';
 
-const RecipeDetails = () => {
+const RecipeDetails = (id) => {
 const [singleRecipe, setSingleRecipe] = useState(null)
 
 useEffect(() => {
-  getSingleRecipe()
+  getSingleRecipe(id)
   .then(data => setSingleRecipe(data))
 }, [])
 
   return (
-    <h3>{singleRecipe.strDrink}</h3>
+    <h3>BOOP</h3>
   )
 }
 
