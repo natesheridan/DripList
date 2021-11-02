@@ -55,10 +55,14 @@ const Main = () => {
           return (<Welcome/>)
             }}
           />
-          <Route path="/drinks" render={displayRecipes}/>
-          <Route exact path="/drinks/:id" render={({ match }) => {
-            <RecipeDetails id={match.params.id} />
-          }} />
+          <Route exact path="/drinks" render={displayRecipes}/>
+          <Route
+          exact path="/drinks/:id"
+          render={({match}) => {
+            const recipeToRender = allDrinks.find(recipe => recipe.idDrink === match.params.id);
+            return <RecipeDetails recipe={recipeToRender} />
+          }}
+        />
         </section>
 
     )
