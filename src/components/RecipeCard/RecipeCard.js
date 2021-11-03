@@ -1,10 +1,11 @@
 import React from 'react';
 import './RecipeCard.css';
 
-const RecipeCard = ({name, ingredients1, ingredients2, ingredients3, ingredients4, ingredients5, ingredients6, ingredients7, ingredients8, ingredients9, ingredients10, ingredients11, ingredients12, ingredients13, ingredients14, ingredients15, instructions}) => {
+const RecipeCard = (drink) => {
+  console.log(drink)
   return (
     <article className="recipe-card">
-      <p> {name}</p>
+      {/* <p> {name}</p>
       <p> {ingredients1}</p>
       <p> {ingredients2}</p>
       <p> {ingredients3}</p>
@@ -20,7 +21,23 @@ const RecipeCard = ({name, ingredients1, ingredients2, ingredients3, ingredients
       <p> {ingredients13}</p>
       <p> {ingredients14}</p>
       <p> {ingredients15}</p>
-      <p> {instructions}</p>
+      <p> {instructions}</p> */}
+
+      <div class="recipe-card">
+        <div class="img-container">
+          <div class="img-inner">
+            <div class="inner-skew">
+              <img src={drink.image}></img>
+            </div>
+          </div>
+        </div>
+        <div class="text-container">
+          <h3>{drink.name}</h3>
+          <div>
+            {drink.tags}
+          </div>
+        </div>
+      </div>
   </article>
 )
 }

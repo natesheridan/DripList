@@ -2,6 +2,8 @@ import React from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard.js';
 import './Welcome.css';
 import { getRandomRecipe } from './../../APICalls'
+import { useAuth0 } from '@auth0/auth0-react';
+
 
 const Welcome = () => {
   const  userData = {}
@@ -16,6 +18,8 @@ const Welcome = () => {
     })
   }, [])
 
+  const { loginWithRedirect } = useAuth0()
+
   return (
     <section className="welcome-section">
       <div className="wbox log-in-section">
@@ -24,13 +28,11 @@ const Welcome = () => {
           <span className="material-icons indigo">water_drop</span>DripList
         </p>
         <p className="s"> Where you curate the drink list! </p>
-        {false
+        {true
           ?<>
             <p>Please sign in with the buttons below:</p>
             <div>
-              <button>google</button>
-              <button>facebook</button>
-              <button>github</button>
+              <button onClick={() => loginWithRedirect()}>Login</button>
             </div>
           </>
           :<>
