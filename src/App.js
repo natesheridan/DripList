@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Form from './components/Form/Form.js';
-import RecipeContainer from './components/RecipeCardContainer/RecipeCardContainer';
+import RecipeContainer from './components/FeaturedRecipeContainer/FeaturedRecipeContainer.js';
 import './App.css';
 import AmericaIcon from './assets/flag2.png'
 import { getLatestRecipes } from './APICalls.js';
