@@ -14,3 +14,17 @@ export const getRandomRecipe = () => {
 
 //https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=
 // ^^ big api with 627 drinks. I used the 'latest' list so it wasn't so huge.
+export const getVodkaRecipes = () => {
+  return fetch(`https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=vodka`)
+  .then(response => response.json())
+}
+
+export const getRumRecipes = () => {
+  return fetch(`https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=rum`)
+  .then(response => response.json())
+}
+
+export const getTequilaRecipes = () => {
+  return fetch(`https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=tequila`)
+  .then(response => response.json())
+}

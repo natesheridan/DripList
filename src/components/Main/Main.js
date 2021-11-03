@@ -1,10 +1,18 @@
 import React from 'react';
+import Vodka from '../Vodka/Vodka.js';
+import Tequila from '../Tequila/Tequila.js';
+import Rum from '../Rum/Rum.js';
 import Welcome from '../Welcome/Welcome.js'
 import RecipeDetails from '../RecipeDetails/RecipeDetails.js';
 import Form from '../Form/Form.js';
-import RecipeCardContainer from '../RecipeCardContainer/RecipeCardContainer.js';
+import FeaturedRecipeContainer from '../FeaturedRecipeContainer/FeaturedRecipeContainer.js';
 import './Main.css';
-import { getLatestRecipes } from '../../APICalls.js';
+import {
+  getLatestRecipes,
+  getVodkaRecipes,
+  getRumRecipes,
+  getTequilaRecipes
+} from '../../APICalls.js';
 import { Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 const Main = () => {
@@ -34,14 +42,14 @@ const Main = () => {
         return (
           <>
           <Form handleChange={handleChange}/>
-          <RecipeCardContainer recipes={filteredDrinks}/>
+          <FeaturedRecipeContainer recipes={filteredDrinks}/>
           </>
         )
       } else {
         return (
           <>
           <Form handleChange={handleChange}/>
-          <RecipeCardContainer recipes={allDrinks}/>
+          <FeaturedRecipeContainer recipes={allDrinks}/>
           </>
         )
       }
@@ -59,8 +67,25 @@ const Main = () => {
           <Route
           exact path="/drinks/:id"
           render={({match}) => {
-            const recipeToRender = allDrinks.find(recipe => recipe.idDrink === match.params.id);
-            return <RecipeDetails recipe={recipeToRender} />
+            return <RecipeDetails id={match.params.id} />
+          }}
+        />
+        <Route
+          exact path="/drinks/vodka"
+          render= {() => {
+        return (<Vodka />)
+          }}
+          />
+        <Route
+          exact path="/drinks/tequila"
+          render= {() => {
+        return (<Tequila />)
+          }}
+          />
+        <Route
+          exact path="/drinks/rum"
+          render= {() => {
+        return (<Rum />)
           }}
         />
         </section>

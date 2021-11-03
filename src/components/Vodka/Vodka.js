@@ -1,14 +1,23 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import { Link } from 'react-router-dom';
-import './RecipeCardContainer.css';
+import './Vodka.css';
+import {
+  getVodkaRecipes
+} from '../../APICalls.js';
 
-const RecipeCardContainer = ({recipes}) => {
-  console.log(recipes)
-    const recipeCard = recipes.map(recipe => {
+const Vodka = () => {
+  const [vodkaContainer, setVodkaContainer] = useState([])
+  useEffect(() => {
+    getVodkaRecipes()
+    .then(data => data.drinks)
+    .then(drinks => setVodkaContainer(drinks))
+  })
+  const vodkaRecipeCard = vodkaContainer.map(recipe => {
       return (
       <div>
-        <Link to={`/drinks/${recipe.idDrink}`}>
+        <Link to={`/drinks/vodka`}>
           <RecipeCard
             name={recipe.strDrink}
             ingredients1={recipe.strIngredient1}
@@ -32,12 +41,9 @@ const RecipeCardContainer = ({recipes}) => {
       </div>
     )
   })
-    return <div className="recipe-container"> {recipeCard} </div>
+    return <div className="vodka-recipe-container"> {vodkaRecipeCard} </div>
 }
 
 
 
-
-
-
-export default RecipeCardContainer;
+export default Vodka
