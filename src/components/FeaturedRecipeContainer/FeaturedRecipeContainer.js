@@ -1,9 +1,9 @@
 import React from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import { Link } from 'react-router-dom';
-import './RecipeCardContainer.css';
+import './FeaturedRecipeContainer.css';
 
-const RecipeCardContainer = ({recipes}) => {
+const FeaturedRecipeContainer = ({recipes}) => {
   console.log(recipes)
     const recipeCard = recipes.map(recipe => {
       return (
@@ -40,4 +40,4 @@ const RecipeCardContainer = ({recipes}) => {
 
 
 
-export default RecipeCardContainer;
+export default FeaturedRecipeContainer;
