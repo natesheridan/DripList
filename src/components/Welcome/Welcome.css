@@ -1,0 +1,46 @@
+.welcome-section{
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    width: 100%;
+    height: auto;
+    border: 2px solid red;
+    flex-wrap: wrap;
+
+}
+.wbox{
+    flex: 1 0 auto;
+    margin: 20px;
+    box-shadow: 0 0 5px black;
+    width: 45vw;
+    min-width: 330px;
+    height: 20em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.wbox p{
+    margin: 10px;
+}
+
+.wbox-logo{
+    font-size:40px;
+    border: 1px solid red;
+    font-family: 'Amita', cursive;
+    height: 40px;
+}
+.indigo{
+    color:indigo;
+}
+.wbox-featured-img{
+    position: relative;
+    height: 120px;
+    width: auto;
+}
+.wbox-featured-buttons{
+    padding-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+  
