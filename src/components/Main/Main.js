@@ -7,7 +7,12 @@ import RecipeDetails from '../RecipeDetails/RecipeDetails.js';
 import Form from '../Form/Form.js';
 import FeaturedRecipeContainer from '../FeaturedRecipeContainer/FeaturedRecipeContainer.js';
 import './Main.css';
-import { getLatestRecipes } from '../../APICalls.js';
+import {
+  getLatestRecipes,
+  getVodkaRecipes,
+  getRumRecipes,
+  getTequilaRecipes
+} from '../../APICalls.js';
 import { Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 const Main = () => {
