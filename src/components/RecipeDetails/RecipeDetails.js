@@ -2,35 +2,36 @@ import './RecipeDetails.css';
 import { useEffect, useState } from 'react';
 import { getSingleRecipe } from '../../APICalls.js';
 
-const RecipeDetails = ({ recipe }) => {
-const [singleRecipe, setSingleRecipe] = useState(null)
-console.log(recipe)
+const RecipeDetails = ({ id }) => {
+const [singleRecipe, setSingleRecipe] = useState({})
 useEffect(() => {
-  getSingleRecipe()
-  .then(data => setSingleRecipe(data))
+  getSingleRecipe(id)
+  .then(response => response.json())
+  .then(data => data.drinks[0])
+  .then(drink => setSingleRecipe(drink))
 }, [])
 
   return (
-    <div className="recipe-detail" id={recipe.idDrink}>
-      <img src={recipe.strDrinkThumb}/>
-      <h2>{recipe.strDrink}</h2>
-        <p>{recipe.strMeasure1} {recipe.strIngredient1}</p>
-        <p>{recipe.strMeasure2} {recipe.strIngredient2}</p>
-        <p>{recipe.strMeasure3} {recipe.strIngredient3}</p>
-        <p>{recipe.strMeasure4} {recipe.strIngredient4}</p>
-        <p>{recipe.strMeasure5} {recipe.strIngredient5}</p>
-        <p>{recipe.strMeasure6} {recipe.strIngredient6}</p>
-        <p>{recipe.strMeasure7} {recipe.strIngredient7}</p>
-        <p>{recipe.strMeasure8} {recipe.strIngredient8}</p>
-        <p>{recipe.strMeasure9} {recipe.strIngredient9}</p>
-        <p>{recipe.strMeasure10} {recipe.strIngredient10}</p>
-        <p>{recipe.strMeasure11} {recipe.strIngredient11}</p>
-        <p>{recipe.strMeasure12} {recipe.strIngredient12}</p>
-        <p>{recipe.strMeasure13} {recipe.strIngredient13}</p>
-        <p>{recipe.strMeasure14} {recipe.strIngredient14}</p>
-        <p>{recipe.strMeasure15} {recipe.strIngredient15}</p>
-      <p>Glass Type: {recipe.strGlass}</p>
-      <p>Instructions: {recipe.strInstructions}</p>
+    <div className="single-recipe-detail" id={id}>
+      <img src={singleRecipe.strDrinkThumb}/>
+      <h2>{singleRecipe.strDrink}</h2>
+        <p>{singleRecipe.strMeasure1} {singleRecipe.strIngredient1}</p>
+        <p>{singleRecipe.strMeasure2} {singleRecipe.strIngredient2}</p>
+        <p>{singleRecipe.strMeasure3} {singleRecipe.strIngredient3}</p>
+        <p>{singleRecipe.strMeasure4} {singleRecipe.strIngredient4}</p>
+        <p>{singleRecipe.strMeasure5} {singleRecipe.strIngredient5}</p>
+        <p>{singleRecipe.strMeasure6} {singleRecipe.strIngredient6}</p>
+        <p>{singleRecipe.strMeasure7} {singleRecipe.strIngredient7}</p>
+        <p>{singleRecipe.strMeasure8} {singleRecipe.strIngredient8}</p>
+        <p>{singleRecipe.strMeasure9} {singleRecipe.strIngredient9}</p>
+        <p>{singleRecipe.strMeasure10} {singleRecipe.strIngredient10}</p>
+        <p>{singleRecipe.strMeasure11} {singleRecipe.strIngredient11}</p>
+        <p>{singleRecipe.strMeasure12} {singleRecipe.strIngredient12}</p>
+        <p>{singleRecipe.strMeasure13} {singleRecipe.strIngredient13}</p>
+        <p>{singleRecipe.strMeasure14} {singleRecipe.strIngredient14}</p>
+        <p>{singleRecipe.strMeasure15} {singleRecipe.strIngredient15}</p>
+      <p>Glass Type: {singleRecipe.strGlass}</p>
+      <p>Instructions: {singleRecipe.strInstructions}</p>
     </div>
   )
 }

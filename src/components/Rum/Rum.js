@@ -1,10 +1,20 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import { Link } from 'react-router-dom';
 import './Rum.css';
+import {
+  getRumRecipes
+} from '../../APICalls.js';
 
-const Rum = ({recipes}) => {
-    const recipeCard = recipes.map(recipe => {
+const Rum = () => {
+  const [rumContainer, setRumContainer] = useState([])
+  useEffect(() => {
+    getRumRecipes()
+    .then(data => data.drinks)
+    .then(drinks => setRumContainer(drinks))
+  })
+  const rumRecipeCard = rumContainer.map(recipe => {
       return (
       <div>
         <Link to={`/drinks/rum`}>
@@ -31,7 +41,7 @@ const Rum = ({recipes}) => {
       </div>
     )
   })
-    return <div className="recipe-container"> {recipeCard} </div>
+    return <div className="rum-recipe-container"> {rumRecipeCard} </div>
 }
 
 

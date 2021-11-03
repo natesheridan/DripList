@@ -1,10 +1,20 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import { Link } from 'react-router-dom';
 import './Vodka.css';
+import {
+  getVodkaRecipes
+} from '../../APICalls.js';
 
-const Vodka = ({recipes}) => {
-    const recipeCard = recipes.map(recipe => {
+const Vodka = () => {
+  const [vodkaContainer, setVodkaContainer] = useState([])
+  useEffect(() => {
+    getVodkaRecipes()
+    .then(data => data.drinks)
+    .then(drinks => setVodkaContainer(drinks))
+  })
+  const vodkaRecipeCard = vodkaContainer.map(recipe => {
       return (
       <div>
         <Link to={`/drinks/vodka`}>
@@ -31,7 +41,7 @@ const Vodka = ({recipes}) => {
       </div>
     )
   })
-    return <div className="recipe-container"> {recipeCard} </div>
+    return <div className="vodka-recipe-container"> {vodkaRecipeCard} </div>
 }
 
 

@@ -67,8 +67,25 @@ const Main = () => {
           <Route
           exact path="/drinks/:id"
           render={({match}) => {
-            const recipeToRender = allDrinks.find(recipe => recipe.idDrink === match.params.id);
-            return <RecipeDetails recipe={recipeToRender} />
+            return <RecipeDetails id={match.params.id} />
+          }}
+        />
+        <Route
+          exact path="/drinks/vodka"
+          render= {() => {
+        return (<Vodka />)
+          }}
+          />
+        <Route
+          exact path="/drinks/tequila"
+          render= {() => {
+        return (<Tequila />)
+          }}
+          />
+        <Route
+          exact path="/drinks/rum"
+          render= {() => {
+        return (<Rum />)
           }}
         />
         </section>
