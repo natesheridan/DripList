@@ -3,6 +3,9 @@
     justify-content: space-around;
     align-items: baseline;
     width: 75%;
-    background-color:indigo;
     color: gold;
+}
+.nav-logo{
+    font-size:30px;
+    font-family: 'Amita', cursive;
 }

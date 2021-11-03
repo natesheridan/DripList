@@ -23,15 +23,15 @@ const RecipeCard = (drink) => {
       <p> {ingredients15}</p>
       <p> {instructions}</p> */}
 
-      <div class="recipe-card">
-        <div class="img-container">
-          <div class="img-inner">
-            <div class="inner-skew">
+      <div className="recipe-card">
+        <div className="img-container">
+          <div className="img-inner">
+            <div className="inner-skew">
               <img src={drink.image}></img>
             </div>
           </div>
         </div>
-        <div class="text-container">
+        <div className="text-container">
           <h3>{drink.name}</h3>
           <div>
             {drink.tags}

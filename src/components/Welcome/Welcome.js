@@ -2,7 +2,7 @@ import React from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard.js';
 import './Welcome.css';
 import { getRandomRecipe, getLatestRecipes } from './../../APICalls'
-import { useAuth0 } from '@auth0/auth0-react';
+import LoginButton from '../LoginButton/LoginButton';
 
 
 const Welcome = () => {
@@ -22,8 +22,6 @@ const Welcome = () => {
     })
   }, [])
 
-  const { loginWithRedirect } = useAuth0()
-
   return (
       <section className="welcome-section">
         <div className="wbox log-in-section">
@@ -36,7 +34,7 @@ const Welcome = () => {
             ?<>
               <p>Please sign in with the buttons below:</p>
               <div>
-                <button onClick={() => loginWithRedirect()}>Login</button>
+                <LoginButton/>
               </div>
             </>
             :<>

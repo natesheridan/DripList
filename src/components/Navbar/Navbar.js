@@ -6,7 +6,7 @@ import './Navbar.css';
 const Navbar = () => {
     return (
         <nav className="navbar">
-            <h2 className="nav-logo">LogoGoesHere</h2>
+            <h2 className="nav-logo"><span className="material-icons">water_drop</span>DripList</h2>
             <button>Test Button</button>
             <button>Test Button</button>
             <button>Test Button</button>

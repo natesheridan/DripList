@@ -6,6 +6,7 @@ import AmericaIcon from './assets/flag2.png'
 import { getLatestRecipes } from './APICalls.js';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
+import Welcome from './components/Welcome/Welcome'
 import { Route } from 'react-router-dom';
 
 class App extends Component {

@@ -32,7 +32,7 @@ const FeaturedRecipeContainer = ({recipes}) => {
         </Link>
     )
   })
-    return <div className="feature-recipe_container"> {recipeCards} </div>
+    return <div className="featured-recipe-container"> {recipeCards} </div>
 }
 
 
