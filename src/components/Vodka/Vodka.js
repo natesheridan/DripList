@@ -13,7 +13,7 @@ const Vodka = () => {
     getVodkaRecipes()
     .then(data => data.drinks)
     .then(drinks => setVodkaContainer(drinks))
-  }, [])
+  })
   const vodkaRecipeCard = vodkaContainer.map(recipe => {
       return (
       <div>

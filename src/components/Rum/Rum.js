@@ -13,7 +13,7 @@ const Rum = () => {
     getRumRecipes()
     .then(data => data.drinks)
     .then(drinks => setRumContainer(drinks))
-  }, [])
+  })
   const rumRecipeCard = rumContainer.map(recipe => {
       return (
       <div>
