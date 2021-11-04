@@ -70,27 +70,27 @@ const Main = () => {
           />
           <Route exact path="/drinks" render={displayRecipes}/>
           <Route
+          exact path="/drinks/vodka"
+          render= {() => {
+            return (<Vodka />)
+          }}
+          />
+          <Route
+          exact path="/drinks/tequila"
+          render= {() => {
+            return (<Tequila />)
+          }}
+          />
+          <Route
+          exact path="/drinks/rum"
+          render= {() => {
+            return (<Rum />)
+          }}
+          />
+          <Route
           exact path="/drinks/:id"
           render={({match}) => {
             return <RecipeDetails id={match.params.id} />
-          }}
-        />
-        <Route
-          exact path="/drinks/vodka"
-          render= {() => {
-        return (<Vodka />)
-          }}
-          />
-        <Route
-          exact path="/drinks/tequila"
-          render= {() => {
-        return (<Tequila />)
-          }}
-          />
-        <Route
-          exact path="/drinks/rum"
-          render= {() => {
-        return (<Rum />)
           }}
         />
         </section>
