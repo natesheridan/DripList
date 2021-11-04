@@ -1,20 +1,25 @@
 import './RecipeDetails.css';
 import { useEffect, useState } from 'react';
 import { getSingleRecipe } from '../../APICalls.js';
+import { setStorage } from '../../util.js';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const RecipeDetails = ({ id }) => {
-const [singleRecipe, setSingleRecipe] = useState({})
-useEffect(() => {
-  getSingleRecipe(id)
-  .then(response => response.json())
-  .then(data => data.drinks[0])
-  .then(drink => setSingleRecipe(drink))
-}, [])
+  const  { user } = useAuth0();
+  const [singleRecipe, setSingleRecipe] = useState({})
+  useEffect(() => {
+    getSingleRecipe(id)
+    .then(response => response.json())
+    .then(data => data.drinks[0])
+    .then(drink => setSingleRecipe(drink))
+  }, [])
 
   return (
     <div className="single-recipe-detail" id={id}>
       <img src={singleRecipe.strDrinkThumb} className="recipe-details-img"/>
-      <button className="add-btn">Add to DripList</button>
+      <button className="add-btn"
+      onClick={() => {setStorage(user.email, id)}}>Add to DripList
+      </button>
       <h2 className="recipe-name">{singleRecipe.strDrink}</h2>
       <div className="ingredients-list">
         <h3>Ingredients</h3>
