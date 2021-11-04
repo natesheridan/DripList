@@ -6,6 +6,7 @@ import Welcome from '../Welcome/Welcome.js'
 import RecipeDetails from '../RecipeDetails/RecipeDetails.js';
 import Form from '../Form/Form.js';
 import FeaturedRecipeContainer from '../FeaturedRecipeContainer/FeaturedRecipeContainer.js';
+import Favorites from '../Favorites/Favorites';
 import './Main.css';
 import {
   getLatestRecipes,
