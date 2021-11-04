@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Header.css';
 import Navbar from '../Navbar/Navbar'
-import Userbar from '../Userbar/Userbar'
+import UserNav from '../UserNav/UserNav'
 
 
 const Header = () => {
@@ -9,7 +9,7 @@ const Header = () => {
     return(
             <section className="header">
                 <Navbar />
-                <Userbar />
+                <UserNav />
                 {/* Inside of Userbar we should pass Userdata as a prop */}
             </section>
         )
