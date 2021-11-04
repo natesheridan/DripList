@@ -13,8 +13,11 @@ useEffect(() => {
 
   return (
     <div className="single-recipe-detail" id={id}>
-      <img src={singleRecipe.strDrinkThumb}/>
-      <h2>{singleRecipe.strDrink}</h2>
+      <img src={singleRecipe.strDrinkThumb} className="recipe-details-img"/>
+      <button className="add-btn">Add to DripList</button>
+      <h2 className="recipe-name">{singleRecipe.strDrink}</h2>
+      <div className="ingredients-list">
+        <h3>Ingredients</h3>
         <p>{singleRecipe.strMeasure1} {singleRecipe.strIngredient1}</p>
         <p>{singleRecipe.strMeasure2} {singleRecipe.strIngredient2}</p>
         <p>{singleRecipe.strMeasure3} {singleRecipe.strIngredient3}</p>
@@ -30,8 +33,11 @@ useEffect(() => {
         <p>{singleRecipe.strMeasure13} {singleRecipe.strIngredient13}</p>
         <p>{singleRecipe.strMeasure14} {singleRecipe.strIngredient14}</p>
         <p>{singleRecipe.strMeasure15} {singleRecipe.strIngredient15}</p>
-      <p>Glass Type: {singleRecipe.strGlass}</p>
-      <p>Instructions: {singleRecipe.strInstructions}</p>
+      </div>
+      <div className="instructions">
+        <p>Glass Type: {singleRecipe.strGlass}</p>
+        <p>Instructions: {singleRecipe.strInstructions}</p>
+      </div>
     </div>
   )
 }
