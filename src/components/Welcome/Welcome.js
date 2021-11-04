@@ -3,11 +3,12 @@ import RecipeCard from '../RecipeCard/RecipeCard.js';
 import './Welcome.css';
 import { getRandomRecipe, getLatestRecipes } from './../../APICalls'
 import LoginButton from '../LoginButton/LoginButton';
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 const Welcome = () => {
-  const  userData = {}
-  
+  const  { user } = useAuth0();
+  const { isAuthenticated } = useAuth0();
   const [randomDrink, setRandomDrink] = React.useState([])
   const [drinks, setDrinks] = React.useState([])
 
@@ -21,7 +22,7 @@ const Welcome = () => {
       setDrinks(data.drinks[0])
     })
   }, [])
-
+  console.log(useAuth0().user)
   return (
       <section className="welcome-section">
         <div className="wbox log-in-section">
@@ -30,7 +31,7 @@ const Welcome = () => {
             <span className="material-icons indigo">water_drop</span>DripList
           </p>
           <p className="s"> Where you curate the drink list! </p>
-          {true
+          {!isAuthenticated
             ?<>
               <p>Please sign in with the buttons below:</p>
               <div>
@@ -38,8 +39,8 @@ const Welcome = () => {
               </div>
             </>
             :<>
-              <p>Hi [Firstname Lastname]!</p> {/* userdata.Name? */}
-              <p>Visit your saved <a href="">DripList</a></p> {/* userdata.Name?  also replace a tags with NavLink after profile nav is setup*/} 
+              <p>Hi {user.given_name} {user.family_name}!</p> {/* userdata.Name? */}
+              <p>Visit your saved <a href="">DripList</a></p> {/* userdata.Name?  also replace a tags with NavLink after profile nav is setup*/}
               <p>Find a new favorite below or search by ingredient above!</p> {/* userdata.Name? */}
             </>}
         </div>
