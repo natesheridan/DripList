@@ -60,8 +60,12 @@ const Main = () => {
           <Route
             exact path="/"
             render= {() => {
-          return (<Welcome/>)
-            }}
+          return (
+          <>
+            <Welcome/>
+            <FeaturedRecipeContainer recipes={allDrinks}/>
+          </>
+          )}}
           />
           <Route exact path="/drinks" render={displayRecipes}/>
           <Route

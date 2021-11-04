@@ -5,12 +5,13 @@ import './FeaturedRecipeContainer.css';
 
 const FeaturedRecipeContainer = ({recipes}) => {
   console.log(recipes)
-    const recipeCard = recipes.map(recipe => {
+    const recipeCards = recipes.map(recipe => {
       return (
-      <div>
         <Link to={`/drinks/${recipe.idDrink}`}>
           <RecipeCard
             name={recipe.strDrink}
+            image={recipe.strDrinkThumb}
+            tags={recipe.strTags}
             ingredients1={recipe.strIngredient1}
             ingredients2={recipe.strIngredient2}
             ingredients3={recipe.strIngredient3}
@@ -29,10 +30,9 @@ const FeaturedRecipeContainer = ({recipes}) => {
             instructions={recipe.strInstructions}
             />
         </Link>
-      </div>
     )
   })
-    return <div className="recipe-container"> {recipeCard} </div>
+    return <div className="featured-recipe-container"> {recipeCards} </div>
 }
 
 

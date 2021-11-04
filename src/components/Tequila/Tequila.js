@@ -13,7 +13,7 @@ const Tequila = () => {
     getTequilaRecipes()
     .then(data => data.drinks)
     .then(drinks => setTequilaContainer(drinks))
-  })
+  }, [])
   const tequilaRecipeCard = tequilaContainer.map(recipe => {
       return (
       <div>
