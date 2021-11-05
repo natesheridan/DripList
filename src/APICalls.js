@@ -5,6 +5,7 @@ export const getLatestRecipes = () => {
 
 export const getSingleRecipe = (id) => {
   return fetch(`https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=${id}`)
+  .then(response => response.json())
 }
 
 export const getRandomRecipe = () => {
