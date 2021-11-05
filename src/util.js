@@ -29,7 +29,7 @@ export const toggleInStorage1 = (userID, drinkID) => {
 
 
 
-export const toggleInStorage = (userSubID = 0, drinkID = 0) => { //userSUB id google-oauth2|1105692342342342348 
+export const toggleInStorage = (userSubID, drinkID) => { //userSUB id google-oauth2|1105692342342342348 
   const userLS = localStorage[userSubID]
   // userLS is localstorage.google-oauth2|1105692342342342348
   // which is a string of numbers
@@ -50,7 +50,7 @@ export const toggleInStorage = (userSubID = 0, drinkID = 0) => { //userSUB id go
   if (indexIfFavorite>-1){ //if LS has ID saved already
     userLSArr.splice(indexIfFavorite, 1); //then we want to remove where it was found with (indexIfFavorite)
     const userLSArrStr = userLSArr.join(''); 
-    localStorage.setItem(userSubID, userLSArr);
+    localStorage.setItem(userSubID, userLSArrStr);
     return userLSArr;   
     
   } else {
@@ -58,6 +58,8 @@ export const toggleInStorage = (userSubID = 0, drinkID = 0) => { //userSUB id go
     const userLSArrStr = userLSArr.join('')//then joining the array back together with no spaces in between
     localStorage.setItem(userSubID, userLSArrStr)//setting that (userLSArrStr) string of numbers at the subID localStorage key
     return userLSArr //returning the all drink ids that are in localStorage from user key after changing data
+    
 
   }
 }
+
