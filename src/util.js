@@ -1,13 +1,26 @@
 //this is where we'll store all the functions that interact with localStorage
-export const setStorage = (userID, recipeID) => {
-  const currentStorage = localStorage.getItem(userID)
-  if (!currentStorage) {
+// export const setStorage = (userID, recipeID) => {
+//   let currentStorage = localStorage.getItem(recipeID)
+//   if (!currentStorage) {
+//     currentStorage = recipeID + '-'
+//   }
+//   let storageArray = currentStorage.split('-')
+//   let updatedArray = storageArray.push(recipeID)
+//   localStorage.setItem(userID, updatedArray)
+// }
 
-  }
-  let storageArray = currentStorage.split('-')
-  let updatedArray = storageArray.push(recipeID)
-  localStorage.setItem(userID, updatedArray.join('-'))
+export const setStorage = (user, recipe) => {
+  let userStorage = localStorage.getItem(recipe)
+  if (userStorage) {
+  let idToStore = recipe;
+  let stringifiedObject = JSON.stringify(idToStore);
+  localStorage.setItem(user, stringifiedObject);
+} else {
+  userStorage = recipe;
 }
+
+}
+
 
 // saveWinsToStorage() {
 //   var objectToStore = this.wins;
