@@ -1,7 +1,7 @@
 import './RecipeDetails.css';
 import { useEffect, useState } from 'react';
 import { getSingleRecipe } from '../../APICalls.js';
-import { setStorage } from '../../util.js';
+import { toggleInStorage } from '../../util.js';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const RecipeDetails = ({ id }) => {
@@ -18,7 +18,7 @@ const RecipeDetails = ({ id }) => {
     <div className="single-recipe-detail" id={id}>
       <img src={singleRecipe.strDrinkThumb} className="recipe-details-img"/>
       <button className="add-btn"
-      onClick={() => {setStorage(user.email, id)}}>Add to DripList
+      onClick={() => {toggleInStorage(user.email, id)}}>Add to DripList
       </button>
       <h2 className="recipe-name">{singleRecipe.strDrink}</h2>
       <div className="ingredients-list">
