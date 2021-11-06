@@ -60,7 +60,6 @@ const Main = () => {
 
     return (
       <section className="main">
-
           <Route
             exact path="/"
             render= {() => {
@@ -72,8 +71,6 @@ const Main = () => {
               )
             }}
           />
-
-
           <Route exact path="/drinks"
           render={displayRecipes}
           />
@@ -99,9 +96,7 @@ const Main = () => {
             return <RecipeDetails id={match.params.id} />
           }}
           />
-
         </section>
-
     )
 }
 
