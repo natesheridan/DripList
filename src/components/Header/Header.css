@@ -1,8 +1,7 @@
-/* .header{
+.header{
     position: relative;
     display: flex;
+    align-items: center;
     width: 100%;
     background-color: #351e29;
-    height: 3em;
-    align-items: center;
-} */
+  }

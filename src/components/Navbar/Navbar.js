@@ -14,16 +14,16 @@ const Navbar = () => {
             {isAuthenticated &&
             <div className="nav-btns">
               <NavLink to="/drinks">
-                <button>All Drinks</button>
+                <button className="nav-btn">All Drinks</button>
               </NavLink>
               <NavLink to="/drinks/vodka">
-                <button>Vodka</button>
+                <button className="nav-btn">Vodka</button>
               </NavLink>
               <NavLink to="/drinks/tequila">
-                <button>Tequila</button>
+                <button className="nav-btn">Tequila</button>
               </NavLink>
               <NavLink to="/drinks/rum">
-                <button>Rum</button>
+                <button className="nav-btn">Rum</button>
               </NavLink>
             </div> }
             {/* <NavLink to="/">Home</NavLink> */}

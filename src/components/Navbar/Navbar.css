@@ -17,11 +17,17 @@ a {
   padding: 20px;
 }
 
-.nav-btns {
-  border: 0px;
-  color: white;
-  font-size: 30px;
-  margin-left: 25px;
-  margin-right: 25px;
+.nav-btn {
+  display: inline-block;
+  outline: 0;
   cursor: pointer;
+  padding: 0 56px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 7px;
+  background-color: #f7a278;
+  color: white;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 20px;
 }
