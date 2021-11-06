@@ -58,42 +58,61 @@ const Main = () => {
 
     return (
       <section className="main">
+
           <Route
             exact path="/"
             render= {() => {
           return (
           <>
             <Welcome/>
-
             <FeaturedRecipeContainer recipes={allDrinks}/>
           </>
           )}}
           />
+
+
           <Route exact path="/drinks" render={displayRecipes}/>
+
+
           <Route
           exact path="/drinks/vodka"
           render= {() => {
             return (<Vodka />)
           }}
           />
+
+
           <Route
           exact path="/drinks/tequila"
           render= {() => {
             return (<Tequila />)
           }}
           />
+
+
           <Route
           exact path="/drinks/rum"
           render= {() => {
             return (<Rum />)
           }}
           />
+
+
+          <Route
+          exact path="/driplist"
+          render= {() => {
+            return (<Favorites />)
+          }}
+          />
+
+
           <Route
           exact path="/drinks/:id"
           render={({match}) => {
             return <RecipeDetails id={match.params.id} />
           }}
-        />
+          />
+
         </section>
 
     )
