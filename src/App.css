@@ -3,8 +3,8 @@
 }
 
 .nav-bar {
-  background-color: indigo;
-  color: gold;
+  background-color: #351e29;
+  color: #f7a278;
   font-family: 'Libre Baskerville', serif;
 };
 
@@ -24,7 +24,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #351e29;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

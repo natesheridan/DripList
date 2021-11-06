@@ -1,17 +1,17 @@
-.navbar{
+.navbar {
     display: flex;
     justify-content: space-around;
     align-items: baseline;
     width: 75%;
-    color: gold;
-}
-.nav-logo{
-    font-size:30px;
-    font-family: 'Amita', cursive;
-}
-a{
-    color: gold;
-    font-decoration: none;
-
+    height: 150px;
+    color: #f7a278;
+    margin-bottom: 50px;
+    margin-top: 15px;
 }
 
+a {
+  font-family: 'Amita', cursive;
+  color: #f7a278;
+  text-decoration: none;
+  font-size: 75px;
+}
