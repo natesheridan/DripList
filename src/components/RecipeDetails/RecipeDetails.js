@@ -9,7 +9,6 @@ const RecipeDetails = ({ id }) => {
   const [singleRecipe, setSingleRecipe] = useState({})
   useEffect(() => {
     getSingleRecipe(id)
-    .then(response => response.json())
     .then(data => data.drinks[0])
     .then(drink => setSingleRecipe(drink))
   }, [])
@@ -18,7 +17,7 @@ const RecipeDetails = ({ id }) => {
     <div className="single-recipe-detail" id={id}>
       <img src={singleRecipe.strDrinkThumb} className="recipe-details-img"/>
       <button className="add-btn"
-      onClick={() => {toggleInStorage(user.email, id)}}>Add to DripList
+      onClick={() => {toggleInStorage(user.sub, id)}}>Add to DripList
       </button>
       <h2 className="recipe-name">{singleRecipe.strDrink}</h2>
       <div className="ingredients-list">
