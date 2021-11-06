@@ -16,7 +16,17 @@ const FeaturedRecipeContainer = ({recipes}) => {
         </Link>
     )
   })
-    return <div className="featured-recipe-container"> {recipeCard} </div>
+    return (
+      <>
+      <div className="drinks-title">
+      <h3 className="featured-drinks">Featured Drinks</h3>
+      </div>
+      <div className="featured-recipe-container">
+       {recipeCard}
+       </div>
+       </>
+    )
+
 }
 
 
