@@ -16,8 +16,10 @@ import {
 } from '../../APICalls.js';
 import { Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-const Main = () => {
+import { useAuth0 } from '@auth0/auth0-react';
 
+const Main = () => {
+  const  { user, isAuthenticated } = useAuth0();
   const [allDrinks, setAllDrinks] = useState([])
   const [filteredDrinks, setFilteredDrinks] = useState([])
   const [searchValue, setSearchValue] = useState('')
@@ -65,7 +67,7 @@ const Main = () => {
           return (
           <>
             <Welcome/>
-            <FeaturedRecipeContainer recipes={allDrinks}/>
+            {isAuthenticated && <FeaturedRecipeContainer recipes={allDrinks}/>}
           </>
           )}}
           />
