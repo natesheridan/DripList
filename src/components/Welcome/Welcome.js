@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard.js';
 import './Welcome.css';
 import { getRandomRecipe, getLatestRecipes } from './../../APICalls'
@@ -7,12 +8,11 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 
 const Welcome = () => {
-  const  { user } = useAuth0();
-  const { isAuthenticated } = useAuth0();
+  const  { user, isAuthenticated } = useAuth0();
   const [randomDrink, setRandomDrink] = React.useState([])
   const [drinks, setDrinks] = React.useState([])
 
-  React.useEffect(() => {
+  useEffect(() => {
     getRandomRecipe()
     .then(data => {
       setRandomDrink(data.drinks[0])
@@ -22,7 +22,7 @@ const Welcome = () => {
       setDrinks(data.drinks[0])
     })
   }, [])
-  console.log(useAuth0().user)
+  console.log(useAuth0())
   return (
       <section className="welcome-section">
         <div className="wbox log-in-section">
