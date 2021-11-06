@@ -26,14 +26,14 @@ const Welcome = () => {
   return (
       <section className="welcome-section">
         <div className="wbox log-in-section">
-          <p> Welcome to </p>
-          <p className="wbox-logo">
+          <p> Welcome to DripList - Where you curate the drink list!</p>
+          {/*<p className="wbox-logo">
             <span className="material-icons indigo">water_drop</span>DripList
           </p>
-          <p className="s"> Where you curate the drink list! </p>
+          <p className="s"> Where you curate the drink list! </p>*/}
           {!isAuthenticated
             ?<>
-              <p>Please sign in with the buttons below:</p>
+              <p>Sign in with Google to get started.</p>
               <div>
                 <LoginButton/>
               </div>
