@@ -8,7 +8,7 @@
     background-color: #351e29;
 }
 
-.log-in-section {
+.log-in-section, .featured-drink {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,14 +26,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: white;
+    color: #351e29;
 }
 .wbox p{
     margin: 10px;
     font-size: 25px;
 }
 
-.login-btn {
+.login-btn, .sneak-peak {
   display: inline-block;
   outline: 0;
   cursor: pointer;
@@ -50,13 +50,8 @@
 }
 
 .wbox-featured-img{
-    position: relative;
-    height: 120px;
-    width: auto;
-}
-.wbox-featured-buttons{
-    padding-top: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
+  position: relative;
+  height: 120px;
+  width: 120px;
+  border-radius: 15px;
 }

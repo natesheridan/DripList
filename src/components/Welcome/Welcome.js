@@ -45,15 +45,12 @@ const Welcome = () => {
             </>}
         </div>
         <div className="wbox featured-drink">
-          <h3>Have you tried</h3>
-          <div className="featured-recipe">
+          <h3>Drip Listers love the {randomDrink?.strDrink}</h3>
               {/* <RecipeCard/> */}
-              <h3>{randomDrink?.strDrink}</h3>
               <img className="wbox-featured-img" alt={randomDrink?.strDrink} src={randomDrink?.strDrinkThumb}></img>
               <div className="wbox-featured-buttons">
-                <button>See the Recipe</button>
+                <button className="sneak-peak">See the Recipe</button>
               </div>
-          </div>
         </div>
       </section>
   )
