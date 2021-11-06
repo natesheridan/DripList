@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 import './FeaturedRecipeContainer.css';
 
 const FeaturedRecipeContainer = ({recipes}) => {
-  console.log(recipes)
     const recipeCard = recipes.map(recipe => {
       return (
-        <Link to={`/drinks/${recipe.idDrink}`}>
+        <Link to={`/recipe/${recipe.idDrink}`}>
           <RecipeCard
             name={recipe.strDrink}
             image={recipe.strDrinkThumb}
@@ -18,12 +17,12 @@ const FeaturedRecipeContainer = ({recipes}) => {
   })
     return (
       <>
-      <div className="drinks-title">
-      <h3 className="featured-drinks">Featured Drinks</h3>
-      </div>
-      <div className="featured-recipe-container">
-       {recipeCard}
-       </div>
+        <div className="drinks-title">
+          <h3 className="featured-drinks">Featured Drinks</h3>
+        </div>
+        <div className="featured-recipe-container">
+          {recipeCard}
+        </div>
        </>
     )
 }
