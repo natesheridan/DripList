@@ -25,9 +25,11 @@ a {
   height: 45px;
   line-height: 45px;
   border-radius: 7px;
-  background-color: #f7a278;
+  background-color: #351e29;
+  border: 2px solid #f7a278;
   color: white;
   font-weight: 400;
   font-size: 20px;
   margin-top: 20px;
+  margin-left: 25px;
 }
