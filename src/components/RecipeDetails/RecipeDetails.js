@@ -17,7 +17,9 @@ const RecipeDetails = ({ id }) => {
     <div className="single-recipe-detail" id={id}>
       <img src={singleRecipe.strDrinkThumb} className="recipe-details-img"/>
       <button className="add-btn"
-      onClick={() => {toggleInStorage(user.sub, id)}}>Add to DripList
+      onClick={() => {
+        console.log(singleRecipe)
+        toggleInStorage(user.sub, singleRecipe)}}>Add to DripList
       </button>
       <h2 className="recipe-name">{singleRecipe.strDrink}</h2>
       <div className="ingredients-list">
