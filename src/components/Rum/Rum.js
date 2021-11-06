@@ -15,7 +15,7 @@ const Rum = () => {
 
   const rumRecipeCard = rumContainer.map(recipe => {
     return (
-      <Link to={`/drinks/${recipe.idDrink}`}>
+      <Link to={`/recipe/${recipe.idDrink}`}>
         <RecipeCard
           name={recipe.strDrink}
           image={recipe.strDrinkThumb}
