@@ -26,12 +26,6 @@ const FeaturedRecipeContainer = ({recipes}) => {
        </div>
        </>
     )
-
 }
-
-
-
-
-
 
 export default FeaturedRecipeContainer;

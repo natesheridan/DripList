@@ -39,7 +39,7 @@ const Welcome = () => {
               </div>
             </>
             :<>
-              <p>Hi {user.given_name} {user.family_name}!</p> {/* userdata.Name? */}
+              <p>Hi {user.given_name}!</p> {/* userdata.Name? */}
               <p><a href="" className="user-driplist">Visit your saved DripList</a></p> {/* userdata.Name?  also replace a tags with NavLink after profile nav is setup*/}
                {/* userdata.Name? */}
             </>}
