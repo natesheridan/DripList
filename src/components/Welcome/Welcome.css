@@ -33,8 +33,9 @@
     font-size: 25px;
 }
 
-.login-btn, .sneak-peak {
+.login-btn, .sneak-peak, .user-driplist {
   display: inline-block;
+  font-family: sans-serif;
   outline: 0;
   cursor: pointer;
   border: 2px solid #351e29;

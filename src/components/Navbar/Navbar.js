@@ -14,7 +14,7 @@ const Navbar = () => {
             {isAuthenticated &&
             <div className="nav-btns">
               <NavLink to="/drinks">
-                <button className="nav-btn">All Drinks</button>
+                <button className="nav-btn">Featured</button>
               </NavLink>
               <NavLink to="/drinks/vodka">
                 <button className="nav-btn">Vodka</button>

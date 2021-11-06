@@ -40,8 +40,8 @@ const Welcome = () => {
             </>
             :<>
               <p>Hi {user.given_name} {user.family_name}!</p> {/* userdata.Name? */}
-              <p>Visit your saved <a href="">DripList</a></p> {/* userdata.Name?  also replace a tags with NavLink after profile nav is setup*/}
-              <p>Find a new favorite below or search by ingredient above!</p> {/* userdata.Name? */}
+              <p><a href="" className="user-driplist">Visit your saved DripList</a></p> {/* userdata.Name?  also replace a tags with NavLink after profile nav is setup*/}
+               {/* userdata.Name? */}
             </>}
         </div>
         <div className="wbox featured-drink">
