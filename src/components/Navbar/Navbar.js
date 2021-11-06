@@ -10,7 +10,7 @@ const Navbar = () => {
 
     return (
         <nav className="navbar">
-            <h2 className="nav-logo"><Link to="/"><span className="material-icons">water_drop</span>DripList</Link></h2>
+            <h2><Link to="/"><span className="material-icons">water_drop</span>DripList</Link></h2>
             {isAuthenticated &&
             <div className="nav-btns">
               <NavLink to="/drinks">
