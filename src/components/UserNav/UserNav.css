@@ -6,15 +6,12 @@
     justify-content: center;
     width: 25%;
     height: 100%;
-    
 }
 
 .userInfoNav{
     width: 100%;
     display: flex;
     justify-content: center;
-
-
 }
 
 .userInfoNav:hover p,img{
