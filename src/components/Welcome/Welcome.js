@@ -22,7 +22,6 @@ const Welcome = () => {
       setDrinks(data.drinks[0])
     })
   }, [])
-  console.log(useAuth0())
   return (
       <section className="welcome-section">
         <div className="wbox log-in-section">
