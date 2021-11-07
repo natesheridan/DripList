@@ -12,7 +12,8 @@ import {
   getLatestRecipes,
   getVodkaRecipes,
   getRumRecipes,
-  getTequilaRecipes
+  getTequilaRecipes,
+  getAllRecipes
 } from '../../APICalls.js';
 import { Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -21,12 +22,20 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 const Main = () => {
   const { user, isAuthenticated } = useAuth0();
-  const [allDrinks, setAllDrinks] = useState([])
+  const [latestDrinks, setlatestDrinks] = useState([])
   const [filteredDrinks, setFilteredDrinks] = useState([])
   const [searchValue, setSearchValue] = useState('')
+  const [allDrinks, setAllDrinks] = useState([])
 
   useEffect(() => {
     getLatestRecipes()
+    .then(data => {
+      setlatestDrinks(data.drinks)
+    });
+  }, []);
+
+  useEffect(() => {
+    getAllRecipes()
     .then(data => {
       setAllDrinks(data.drinks)
     });
@@ -53,7 +62,7 @@ const Main = () => {
         return (
           <>
             <Form handleChange={handleChange}/>
-            <FeaturedRecipeContainer recipes={allDrinks}/>
+            <FeaturedRecipeContainer recipes={latestDrinks}/>
           </>
         )
       }
@@ -67,7 +76,7 @@ const Main = () => {
               return (
                 <>
                   <Welcome/>
-                  {isAuthenticated && <FeaturedRecipeContainer recipes={allDrinks}/>}
+                  {isAuthenticated && <FeaturedRecipeContainer recipes={latestDrinks}/>}
                 </>
               )
             }}
