@@ -13,18 +13,10 @@ const Navbar = () => {
             <h2><Link to="/"><span className="material-icons">water_drop</span>DripList</Link></h2>
             {isAuthenticated &&
             <div className="nav-btns">
-              <NavLink to="/drinks">
-                <button className="nav-btn">Featured</button>
-              </NavLink>
-              <NavLink to="/drinks/vodka">
-                <button className="nav-btn">Vodka</button>
-              </NavLink>
-              <NavLink to="/drinks/tequila">
-                <button className="nav-btn">Tequila</button>
-              </NavLink>
-              <NavLink to="/drinks/rum">
-                <button className="nav-btn">Rum</button>
-              </NavLink>
+              <NavLink exact to="/drinks" activeStyle={{border: 'solid 3px #fff'}} className="nav-btn"> Featured </NavLink>
+              <NavLink activeStyle={{border: 'solid 3px #fff'}} exact to="/drinks/vodka" className="nav-btn">Vodka</NavLink>
+              <NavLink activeStyle={{border: 'solid 3px #fff'}} exact to="/drinks/tequila" className="nav-btn">Tequila</NavLink>
+              <NavLink activeStyle={{border: 'solid 3px #fff'}} exact to="/drinks/rum" className="nav-btn">Rum</NavLink>
             </div> }
             {/* <NavLink to="/">Home</NavLink> */}
             {/* <NavLink to="/drinks">All Drinks</NavLink> */}
