@@ -8,8 +8,12 @@ const RecipeDetails = ({ id }) => {
   const  { user } = useAuth0();
   const [singleRecipe, setSingleRecipe] = useState({})
   const LS = getUserStorage(user.sub)
-  const foundItem = LS.find(recipes => recipes.id===id)
-  const [isFavorite, setIsFavorite] = useState((foundItem)||false)
+  const foundItem = LS.find(recipes => recipes.idDrink===id)
+  let wasFound = true
+  if (!foundItem){
+    wasFound = false
+  }
+  const [isFavorite, setIsFavorite] = useState(wasFound)
 
   useEffect(() => {
     getSingleRecipe(id)
@@ -27,7 +31,7 @@ const RecipeDetails = ({ id }) => {
 
         }}
       >
-        {isFavorite ? <>Add to DripList</> : <>Remove from DripList</>}
+        {!isFavorite ? <>Add to DripList</> : <>Remove from DripList</>}
       </button>
       <h2 className="recipe-name">{singleRecipe.strDrink}</h2>
       <div className="ingredients-list">
