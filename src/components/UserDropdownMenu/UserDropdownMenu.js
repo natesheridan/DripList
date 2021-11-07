@@ -11,7 +11,7 @@ const UserDropdownMenu = () => {
     return (
         <div className="user-dropdown-menu">
             <Link to="/driplist" className="user-btn test">View DripList</Link>
-            <Link onClick={(e) => {e.preventDefault();clearUserStorage(user.sub)}} className="user-btn test">Clear DripList</Link>
+            <button onClick={(e) => {e.preventDefault();clearUserStorage(user.sub)}} className="user-btn test">Clear DripList</button>
             <LogoutButton/>
         </div>
     )
