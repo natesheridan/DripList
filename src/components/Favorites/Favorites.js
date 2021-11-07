@@ -26,8 +26,8 @@ const Favorites = () => {
           <h3 className="featured-drinks">Your DripList</h3>
           </div>
       {(recipeCards.length>0)
-        ?{recipeCards}
-        :<p className="drinks-title">Save some drinks first!</p>
+        ?recipeCards
+        :<p className="drinks-title white">You seem thirsty! Go find some drinks!</p>
       }
     </div>
   )
