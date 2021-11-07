@@ -69,7 +69,7 @@
 
 export const toggleInStorage  = (userSubID, recipeObj) => {
   const initialLocalStorage = JSON.parse(localStorage.getItem(userSubID));
-  if(!initialLocalStorage){
+  if(initialLocalStorage===null){
     let defaultArr = [recipeObj]
     localStorage.setItem(userSubID, JSON.stringify(defaultArr))
     return defaultArr
