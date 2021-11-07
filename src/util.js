@@ -66,7 +66,10 @@
 // }
 
 
-
+export const setDefaultStorage = (userSubID) => {
+  let defaultArr = []
+  localStorage.setItem(userSubID, JSON.stringify(defaultArr))
+}
 
 export const toggleInStorage  = (userSubID, recipeObj) => {
   const initialLocalStorage = JSON.parse(localStorage.getItem(userSubID));
