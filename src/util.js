@@ -66,10 +66,6 @@
 // }
 
 
-export const setDefaultStorage = (userSubID) => {
-  let defaultArr = []
-  localStorage.setItem(userSubID, JSON.stringify(defaultArr))
-}
 
 export const toggleInStorage  = (userSubID, recipeObj) => {
   const initialLocalStorage = JSON.parse(localStorage.getItem(userSubID));
@@ -91,7 +87,17 @@ export const toggleInStorage  = (userSubID, recipeObj) => {
 }
 
 export const getUserStorage = (userSubID) => {
-  let currentStorage = localStorage.getItem(userSubID)
-  let currentStorageObj = JSON.parse(currentStorage)
-  return currentStorageObj
+  const initialLocalStorage = JSON.parse(localStorage.getItem(userSubID));
+  if(initialLocalStorage===null){
+    let defaultArr = []
+    localStorage.setItem(userSubID, JSON.stringify(defaultArr))
+    return defaultArr
+  }
+  return initialLocalStorage
+}
+
+export const clearUserStorage = (userSubID) => {
+  let defaultArr = []
+  localStorage.setItem(userSubID, JSON.stringify(defaultArr))
+  return defaultArr
 }
