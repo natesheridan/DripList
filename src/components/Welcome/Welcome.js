@@ -26,34 +26,31 @@ const Welcome = () => {
   return (
       <section className="welcome-section">
         <div className="wbox log-in-section">
-          <p> Welcome to </p>
-          <p className="wbox-logo">
+          <p> Welcome to DripList - Where you curate the drink list!</p>
+          {/*<p className="wbox-logo">
             <span className="material-icons indigo">water_drop</span>DripList
           </p>
-          <p className="s"> Where you curate the drink list! </p>
+          <p className="s"> Where you curate the drink list! </p>*/}
           {!isAuthenticated
             ?<>
-              <p>Please sign in with the buttons below:</p>
+              <p>Sign in with Google to get started.</p>
               <div>
                 <LoginButton/>
               </div>
             </>
             :<>
-              <p>Hi {user.given_name} {user.family_name}!</p> {/* userdata.Name? */}
-              <p>Visit your saved <a href="">DripList</a></p> {/* userdata.Name?  also replace a tags with NavLink after profile nav is setup*/}
-              <p>Find a new favorite below or search by ingredient above!</p> {/* userdata.Name? */}
+              <p>Hi {user.given_name}!</p> {/* userdata.Name? */}
+              <p><a href="" className="user-driplist">Visit your saved DripList</a></p> {/* userdata.Name?  also replace a tags with NavLink after profile nav is setup*/}
+               {/* userdata.Name? */}
             </>}
         </div>
         <div className="wbox featured-drink">
-          <h3>Have you tried</h3>
-          <div className="featured-recipe">
+          <h3>Drip Listers love the {randomDrink?.strDrink}</h3>
               {/* <RecipeCard/> */}
-              <h3>{randomDrink?.strDrink}</h3>
               <img className="wbox-featured-img" alt={randomDrink?.strDrink} src={randomDrink?.strDrinkThumb}></img>
               <div className="wbox-featured-buttons">
-                <button>See the Recipe</button>
+                <button className="sneak-peak">See the Recipe</button>
               </div>
-          </div>
         </div>
       </section>
   )

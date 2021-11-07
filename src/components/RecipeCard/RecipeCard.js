@@ -4,24 +4,6 @@ import './RecipeCard.css';
 const RecipeCard = (drink) => {
   return (
     <article className="recipe-card">
-      {/* <p> {name}</p>
-      <p> {ingredients1}</p>
-      <p> {ingredients2}</p>
-      <p> {ingredients3}</p>
-      <p> {ingredients4}</p>
-      <p> {ingredients5}</p>
-      <p> {ingredients6}</p>
-      <p> {ingredients7}</p>
-      <p> {ingredients8}</p>
-      <p> {ingredients9}</p>
-      <p> {ingredients10}</p>
-      <p> {ingredients11}</p>
-      <p> {ingredients12}</p>
-      <p> {ingredients13}</p>
-      <p> {ingredients14}</p>
-      <p> {ingredients15}</p>
-      <p> {instructions}</p> */}
-
       <div className="recipe-card">
         <div className="img-container">
           <div className="img-inner">
