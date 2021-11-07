@@ -53,8 +53,10 @@ const RecipeDetails = ({ id }) => {
         <p>{singleRecipe.strMeasure15} {singleRecipe.strIngredient15}</p>
       </div>
       <div className="instructions">
-        <p>Glass Type: {singleRecipe.strGlass}</p>
-        <p>Instructions: {singleRecipe.strInstructions}</p>
+        <h3>Glass Type</h3>
+        <p>{singleRecipe.strGlass}</p>
+        <h3>Instructions</h3>
+        <p>{singleRecipe.strInstructions}</p>
       </div>
     </div>
   )
