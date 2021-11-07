@@ -16,11 +16,15 @@ import {
 } from '../../APICalls.js';
 import { Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import {useAuth0} from '@auth0/auth0-react'
+import { getUserStorage } from '../../util.js';
+
 const Main = () => {
 
   const [allDrinks, setAllDrinks] = useState([])
   const [filteredDrinks, setFilteredDrinks] = useState([])
   const [searchValue, setSearchValue] = useState('')
+  const [userFavorites, setUserFavorites] = useState(getUserStorage(useAuth0().user.sub))
 
   React.useEffect(() => {
     getLatestRecipes()
@@ -100,9 +104,8 @@ const Main = () => {
 
           <Route
           exact path="/driplist"
-          render= {() => {
-            return (<Favorites />)
-          }}
+          component= {() => <FeaturedRecipeContainer setUserFavorites={setUserFavorites} recipes={userFavorites} />
+          }
           />
 
 

@@ -2,7 +2,6 @@ import React from 'react';
 import './RecipeCard.css';
 
 const RecipeCard = (drink) => {
-  console.log(drink)
   return (
     <article className="recipe-card">
       {/* <p> {name}</p>

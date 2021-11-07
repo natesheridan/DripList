@@ -87,3 +87,8 @@ export const toggleInStorage  = (userSubID, recipeObj) => {
   }
 }
 
+export const getUserStorage = (userSubID) => {
+  let currentStorage = localStorage.getItem(userSubID)
+  let currentStorageObj = JSON.parse(currentStorage)
+  return currentStorageObj
+}
