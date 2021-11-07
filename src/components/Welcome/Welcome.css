@@ -50,6 +50,10 @@
   margin-top: 20px;
 }
 
+.sneak-peak {
+  cursor: default;
+}
+
 .wbox-featured-img{
   position: relative;
   height: 120px;

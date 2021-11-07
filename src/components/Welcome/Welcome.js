@@ -39,9 +39,17 @@ const Welcome = () => {
           <h3>Drip Listers love the {randomDrink?.strDrink}</h3>
               <img className="wbox-featured-img" alt={randomDrink?.strDrink} src={randomDrink?.strDrinkThumb}></img>
               <div className="wbox-featured-buttons">
+              {!isAuthenticated
+                ?<>
+                <p className="sneak-peak">⬅️ Sign in to see the recipe!</p>
+                </>
+                :<>
                 <Link to={`/recipe/${randomDrink.idDrink}`}>
                 <button className="sneak-peak">See the Recipe</button>
                 </Link>
+
+                </>}
+
               </div>
         </div>
       </section>
