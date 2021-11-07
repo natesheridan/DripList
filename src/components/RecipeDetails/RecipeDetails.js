@@ -1,12 +1,16 @@
 import './RecipeDetails.css';
 import { useEffect, useState } from 'react';
 import { getSingleRecipe } from '../../APICalls.js';
-import { toggleInStorage } from '../../util.js';
+import { toggleInStorage, getUserStorage } from '../../util.js';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const RecipeDetails = ({ id }) => {
   const  { user } = useAuth0();
   const [singleRecipe, setSingleRecipe] = useState({})
+  const LS = getUserStorage(user.sub)
+  const foundItem = LS.find(recipes => recipes.id===id)
+  const [isFavorite, setIsFavorite] = useState((foundItem)||false)
+
   useEffect(() => {
     getSingleRecipe(id)
     .then(data => data.drinks[0])
@@ -17,8 +21,13 @@ const RecipeDetails = ({ id }) => {
     <div className="single-recipe-detail" id={id}>
       <img src={singleRecipe.strDrinkThumb} className="recipe-details-img"/>
       <button className="add-btn"
-      onClick={() => {
-        toggleInStorage(user.sub, singleRecipe)}}>Add to DripList
+        onClick={() => {
+          toggleInStorage(user.sub, singleRecipe)
+          setIsFavorite(!isFavorite)
+
+        }}
+      >
+        {isFavorite ? <>Add to DripList</> : <>Remove from DripList</>}
       </button>
       <h2 className="recipe-name">{singleRecipe.strDrink}</h2>
       <div className="ingredients-list">
