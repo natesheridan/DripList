@@ -30,8 +30,8 @@ const Welcome = () => {
             </>
             :<>
               <p>Hi {user.given_name}!</p>
-              <p><a href="" className="user-driplist">Visit your saved DripList</a></p> 
-        
+              <p><a href="http://localhost:3000/driplist" className="user-driplist">Visit your saved DripList</a></p> 
+
             </>}
         </div>
         <div className="wbox featured-drink">
@@ -50,4 +50,3 @@ const Welcome = () => {
 
 
 export default Welcome
-
