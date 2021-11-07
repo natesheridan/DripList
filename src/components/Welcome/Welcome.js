@@ -5,6 +5,7 @@ import './Welcome.css';
 import { getRandomRecipe, getLatestRecipes } from './../../APICalls'
 import LoginButton from '../LoginButton/LoginButton';
 import { useAuth0 } from '@auth0/auth0-react';
+import { Link } from 'react-router-dom';
 
 
 const Welcome = () => {
@@ -30,7 +31,7 @@ const Welcome = () => {
             </>
             :<>
               <p>Hi {user.given_name}!</p>
-              <p><a href="http://localhost:3000/driplist" className="user-driplist">Visit your saved DripList</a></p> 
+              <p><a href="http://localhost:3000/driplist" className="user-driplist">Visit your saved DripList</a></p>
 
             </>}
         </div>
@@ -38,7 +39,9 @@ const Welcome = () => {
           <h3>Drip Listers love the {randomDrink?.strDrink}</h3>
               <img className="wbox-featured-img" alt={randomDrink?.strDrink} src={randomDrink?.strDrinkThumb}></img>
               <div className="wbox-featured-buttons">
+                <Link to={`/recipe/${randomDrink.idDrink}`}>
                 <button className="sneak-peak">See the Recipe</button>
+                </Link>
               </div>
         </div>
       </section>
