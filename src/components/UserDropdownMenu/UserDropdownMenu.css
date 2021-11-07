@@ -1,7 +1,8 @@
 .user-dropdown-menu{
-    position: relative;
-    left: 30px;
-    top: -60px;
+    position: absolute;
+    left: 50px;
+    top: 80px;
+    height: 400;
     z-index: 5;
     display: flex;
     flex-direction: column;
