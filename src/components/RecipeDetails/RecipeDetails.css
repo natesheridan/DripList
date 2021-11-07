@@ -1,10 +1,10 @@
 body {
   background-color: #351e29;
-
 }
 
 .single-recipe-detail {
   margin-top: 50px;
+  margin-bottom: 100px;
     display: grid;
     justify-content: center;
     grid-gap: 10px;
@@ -13,7 +13,8 @@ body {
   .recipe-name {
     grid-column: 1 / 4;
     grid-row: 1;
-    color: #F6BC00;
+    color: #f7a278;
+    font-size: 40px;
   }
 
   .ingredients-list {
@@ -24,43 +25,55 @@ body {
     align-items: center;
     justify-content: flex-end;
     box-shadow: 0 8px 10px -5px rgb(0 0 0 / 16%), 0 16px 24px 2px rgb(0 0 0 / 11%), 0 6px 30px 5px rgb(0 0 0 / 10%);
-    border-radius: 5px;
-    color: #F6BC00;
+    color: #351e29;
+    background-color: #f7a278;
+    border-top-left-radius: 55px;
+    border-bottom-left-radius: 55px;
+    border-top-right-radius: 55px;
+    border-bottom-right-radius: 55px;
 }
   .recipe-details-img {
     grid-column: 1 / 2 ;
     grid-row: 2 / 3 ;
     box-shadow: 0 8px 10px -5px rgb(0 0 0 / 16%), 0 16px 24px 2px rgb(0 0 0 / 11%), 0 6px 30px 5px rgb(0 0 0 / 10%);
-    border-radius: 5px;
+    border-radius: 100%;
   }
   .instructions {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    grid-column: 2 / 4;
+    grid-column: 1 / 4;
     grid-row: 4;
     box-shadow: 0 8px 10px -5px rgb(0 0 0 / 16%), 0 16px 24px 2px rgb(0 0 0 / 11%), 0 6px 30px 5px rgb(0 0 0 / 10%);
-    border-radius: 5px;
-    color: #F6BC00;
+    border-radius: 55px;
+    color: #351e29;
+    background-color: #f7a278;
+    text-align: center;
+    padding: 10px;
   }
 
   .add-btn {
     grid-column: 1;
-    grid-row: 4;
+    grid-row: 2;
     display: inline-block;
     outline: 0;
     border: 0;
     font-size: 20px;
     font-weight: 500;
-    color: #e3b341;
+    color: #f7a278;
     cursor: pointer;
-    background-color: #493d57;
-    border: 2px solid #e3b341;
-    border-radius: 3px;
+    background-color: #351e29;
+    border: 2px solid #f7a278;
+    border-radius: 100%;
     padding: 16px 18px 15px;
     white-space: nowrap;
+    height: 200px;
+    width: 200px;
   }
+
+  @media (hover: hover) {
+  .add-btn:hover {
+    background: #f7a278;
+    color: #351e29;
+  }
+}
 
 .recipe-details-img {
   width: 800px;
