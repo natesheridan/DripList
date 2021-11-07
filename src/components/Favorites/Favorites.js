@@ -1,17 +1,16 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import { Link } from 'react-router-dom';
 import './Favorites.css';
-import { getUserStorage } from '../../util.js';
 import { useAuth0 } from '@auth0/auth0-react';
-import { render } from '@testing-library/react';
 
-const Favorites = ({recipes}) => {
+const Favorites = () => {
   const {user} = useAuth0()
-  const recipeCard = recipes?.map(recipe => {
+  const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem(user.sub)))
+  const recipeCards = favorites?.map(recipe => {
     return (
-      <Link to={`/drinks/${recipe.idDrink}`}>
+      <Link to={`/recipe/${recipe.idDrink}`}>
         <RecipeCard
           name={recipe.strDrink}
           image={recipe.strDrinkThumb}
@@ -20,7 +19,18 @@ const Favorites = ({recipes}) => {
       </Link>
     )
   })
-  return <div className="featured-recipe-container"> {recipeCard} </div>
+  return (
+    <div className="saved-recipe-container">
+
+          <div className="drinks-title">
+          <h3 className="featured-drinks">Your DripList</h3>
+          </div>
+      {(recipeCards.length>0)
+        ?{recipeCards}
+        :<p className="drinks-title">Save some drinks first!</p>
+      }
+    </div>
+  )
 }
 
 
@@ -28,24 +38,3 @@ const Favorites = ({recipes}) => {
 export default Favorites
 
 
-
-// const Rum = () => {
-//   const [rumContainer, setRumContainer] = useState([])
-//   useEffect(() => {
-//     getRumRecipes()
-//     .then(data => data.drinks)
-//     .then(drinks => setRumContainer(drinks))
-//   }, [])
-//   const rumRecipeCard = rumContainer.map(recipe => {
-//     return (
-//       <Link to={`/drinks/${recipe.idDrink}`}>
-//         <RecipeCard
-//           name={recipe.strDrink}
-//           image={recipe.strDrinkThumb}
-//           tags={recipe.strTags}
-//           />
-//       </Link>
-//   )
-//   })
-//     return <div className="rum-recipe-container"> {rumRecipeCard} </div>
-    
