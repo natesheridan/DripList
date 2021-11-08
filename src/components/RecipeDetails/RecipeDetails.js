@@ -7,8 +7,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 const RecipeDetails = ({ id }) => {
   const  { user } = useAuth0();
   const [singleRecipe, setSingleRecipe] = useState({})
-  const LS = getUserStorage(user.sub)
-  const foundItem = LS.find(recipes => recipes.idDrink===id)
+  const LS = getUserStorage(user?.sub)
+  const foundItem = LS?.find(recipes => recipes.idDrink===id)
   let wasFound = true
   if (!foundItem){
     wasFound = false

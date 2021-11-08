@@ -1,30 +1,23 @@
 describe('RecipeInfo', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
-  })
-
-  it('Should be able to access single recipe details', () => {
-    cy.get('[name="Lemon Elderflower Spritzer"]').click()
+    cy.visit('http://localhost:3000/recipe/178360')
   })
 
   it('Should contain recipe img', () => {
-    cy.get('[name="Lemon Elderflower Spritzer"]').click()
-    .get('img').each($el => {
-      cy.wrap($el).should('have.attr', 'src')
-      cy.wrap($el).should('have.attr', 'alt')
-    })
+    cy.get(".single-recipe-detail")
+      .get(".recipe-details-img")
   })
 
   it('Should display recipe name', () => {
-      cy.get('[name="Lemon Elderflower Spritzer"]').click()
-      .get('.recipe-name')
-      .should('have.text', 'Money Plane')
+      cy.get('.recipe-name')
     })
 
   it('Should display ingredients list', () => {
-      cy.get('[name="Lemon Elderflower Spritzer"]').click()
-      .get('.ingredients-list')
+      cy.get('.ingredients-list')
     })
 
+  it('Should display instructions list', () => {
+        cy.get('.instructions')
+      })
 
 })
