@@ -52,4 +52,9 @@ For this project, our primary learning goal was to self-teach a new technology t
 
 ## Wins
 
+We implemented a new technology that we fully self taught! 🙌🏼
+
 ## Future Features
+
+* Test User Login with Cypress
+* Enable user to leave comments and reviews on drink recipes
