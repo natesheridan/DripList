@@ -1,13 +1,12 @@
 describe("Navbar", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000")
+    cy.visit("http://localhost:3000/drinks")
   })
 
-  it("The navbar information should render on load", () => {
-      cy.get(".navbar").should("be.visible")
-      cy.contains(".nav-logo", "DripList")
-      cy.contains(".userInfoNav")
-      cy.contains(".button, "Vodka")
-      cy.contains(".button, "Tequila")
-      cy.contains(".button, "Rum")
-    })
+    it("Should contain a searchBar input", () => {
+    cy.get('form input[placeholder="Find your perfect cocktail here..."]')
+      .get('form input[type="text"]')
+      .get('form input[name="input"]')
+  })
+
+  })
