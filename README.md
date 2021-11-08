@@ -48,6 +48,8 @@ After you have started the server you should be able to find the website visible
 
 ## Challenges
 
+For this project, our primary learning goal was to self-teach a new technology that has not been formally taught to us at Turing. Together, as a group, we chose User Authentication. Having never had experience with User Auth before, it was a challenge to implement! We first had to decide on an authentication provider. After doing some research, we landed on Auth0 because of the thourough documentation on how to implement it in a React App. Once we set up an Auth0 account, we followed the setup details in the docs and it went fairly smoothly. Our next step was to allow an authenticated user to favorite recipes using local storage. This was a doozy but we eventually figured it out! 
+
 ## Wins
 
 ## Future Features
