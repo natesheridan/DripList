@@ -1,33 +1,27 @@
 import React, { Component } from 'react';
-import Form from './components/Form/Form.js';
-import RecipeContainer from './components/FeaturedRecipeContainer/FeaturedRecipeContainer.js';
 import './App.css';
-import AmericaIcon from './assets/flag2.png'
-import { getLatestRecipes } from './APICalls.js';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
-import Welcome from './components/Welcome/Welcome'
-import { Route } from 'react-router-dom';
+import LoadingScreen from './components/LoadingScreen/LoadingScreen'
+import { useAuth0 } from '@auth0/auth0-react';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      recipes: [],
-      foundRecipes: []
-    }
-  }
+const App = () => {
 
-  render() {
-    return(
-      <>
+  return(
+    <>
+    {!useAuth0().isLoading 
+    ?<>
         <Header/>
         <Main/>
-      </>
-    )
-  }
+    </>
+    :<>
+        <LoadingScreen/>
+    </>
+    }
+    </>
+  )
 }
 
-//conditional rendering logic isn't quite working but search functionality is
+
 
 export default App;

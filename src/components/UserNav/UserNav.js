@@ -14,7 +14,7 @@ const UserNav = () => {
             <div className="userInfoNav" onClick={onClick}>
                 <img src={user?.picture}></img>
                 <p>
-                    {user?.name}<span class="down-arrow material-icons">expand_more</span>
+                    {user?.name}{isActive?<span className="down-arrow material-icons">expand_less</span>:<span className="down-arrow material-icons">expand_more</span>}
                 </p>
             </div>
             {isActive && <UserDropdownMenu/>}

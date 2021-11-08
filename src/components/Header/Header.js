@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import './Header.css';
 import Navbar from '../Navbar/Navbar'
 import UserNav from '../UserNav/UserNav'
-
+import { useAuth0 } from '@auth0/auth0-react';
 
 const Header = () => {
-// Header should recieve Userdata as a prop.
+  const  { user, isAuthenticated } = useAuth0();
     return(
             <section className="header">
                 <Navbar />
-                <UserNav />
-                {/* Inside of Userbar we should pass Userdata as a prop */}
+                {isAuthenticated && <UserNav />}
             </section>
         )
 }

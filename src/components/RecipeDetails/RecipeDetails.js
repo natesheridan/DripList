@@ -1,20 +1,38 @@
 import './RecipeDetails.css';
 import { useEffect, useState } from 'react';
 import { getSingleRecipe } from '../../APICalls.js';
+import { toggleInStorage, getUserStorage } from '../../util.js';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const RecipeDetails = ({ id }) => {
-const [singleRecipe, setSingleRecipe] = useState({})
-useEffect(() => {
-  getSingleRecipe(id)
-  .then(response => response.json())
-  .then(data => data.drinks[0])
-  .then(drink => setSingleRecipe(drink))
-}, [])
+  const  { user } = useAuth0();
+  const [singleRecipe, setSingleRecipe] = useState({})
+  const LS = getUserStorage(user.sub)
+  const foundItem = LS.find(recipes => recipes.idDrink===id)
+  let wasFound = true
+  if (!foundItem){
+    wasFound = false
+  }
+  const [isFavorite, setIsFavorite] = useState(wasFound)
+
+  useEffect(() => {
+    getSingleRecipe(id)
+    .then(data => data.drinks[0])
+    .then(drink => setSingleRecipe(drink))
+  }, [])
 
   return (
     <div className="single-recipe-detail" id={id}>
       <img src={singleRecipe.strDrinkThumb} className="recipe-details-img"/>
-      <button className="add-btn">Add to DripList</button>
+      <button className="add-btn"
+        onClick={() => {
+          toggleInStorage(user.sub, singleRecipe)
+          setIsFavorite(!isFavorite)
+
+        }}
+      >
+        {!isFavorite ? <>Add to DripList</> : <>Remove from DripList</>}
+      </button>
       <h2 className="recipe-name">{singleRecipe.strDrink}</h2>
       <div className="ingredients-list">
         <h3>Ingredients</h3>
@@ -35,8 +53,10 @@ useEffect(() => {
         <p>{singleRecipe.strMeasure15} {singleRecipe.strIngredient15}</p>
       </div>
       <div className="instructions">
-        <p>Glass Type: {singleRecipe.strGlass}</p>
-        <p>Instructions: {singleRecipe.strInstructions}</p>
+        <h3>Glass Type</h3>
+        <p>{singleRecipe.strGlass}</p>
+        <h3>Instructions</h3>
+        <p>{singleRecipe.strInstructions}</p>
       </div>
     </div>
   )

@@ -1,59 +1,56 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard.js';
 import './Welcome.css';
 import { getRandomRecipe, getLatestRecipes } from './../../APICalls'
 import LoginButton from '../LoginButton/LoginButton';
 import { useAuth0 } from '@auth0/auth0-react';
+import { Link } from 'react-router-dom';
 
 
 const Welcome = () => {
-  const  { user } = useAuth0();
-  const { isAuthenticated } = useAuth0();
+  const  { user, isAuthenticated } = useAuth0();
   const [randomDrink, setRandomDrink] = React.useState([])
-  const [drinks, setDrinks] = React.useState([])
 
-  React.useEffect(() => {
+  useEffect(() => {
     getRandomRecipe()
     .then(data => {
       setRandomDrink(data.drinks[0])
     })
-    getLatestRecipes()
-    .then(data => {
-      setDrinks(data.drinks[0])
-    })
   }, [])
-  console.log(useAuth0().user)
   return (
       <section className="welcome-section">
         <div className="wbox log-in-section">
-          <p> Welcome to </p>
-          <p className="wbox-logo">
-            <span className="material-icons indigo">water_drop</span>DripList
-          </p>
-          <p className="s"> Where you curate the drink list! </p>
+          <p> Welcome to DripList - Where you curate the drink list!</p>
           {!isAuthenticated
             ?<>
-              <p>Please sign in with the buttons below:</p>
+              <p>Sign in with Google to get started.</p>
               <div>
                 <LoginButton/>
               </div>
             </>
             :<>
-              <p>Hi {user.given_name} {user.family_name}!</p> {/* userdata.Name? */}
-              <p>Visit your saved <a href="">DripList</a></p> {/* userdata.Name?  also replace a tags with NavLink after profile nav is setup*/}
-              <p>Find a new favorite below or search by ingredient above!</p> {/* userdata.Name? */}
+              <p>Hi {user.given_name}!</p>
+              <p><a href="http://localhost:3000/driplist" className="user-driplist">Visit your saved DripList</a></p>
+
             </>}
         </div>
         <div className="wbox featured-drink">
-          <h3>Have you tried</h3>
-          <div className="featured-recipe">
-              {/* <RecipeCard/> */}
-              <h3>{randomDrink?.strDrink}</h3>
+          <h3>Drip Listers love the {randomDrink?.strDrink}</h3>
               <img className="wbox-featured-img" alt={randomDrink?.strDrink} src={randomDrink?.strDrinkThumb}></img>
               <div className="wbox-featured-buttons">
-                <button>See the Recipe</button>
+              {!isAuthenticated
+                ?<>
+                <p className="sneak-peak">⬅️ Sign in to see the recipe!</p>
+                </>
+                :<>
+                <Link to={`/recipe/${randomDrink.idDrink}`}>
+                <button className="sneak-peak">See the Recipe</button>
+                </Link>
+
+                </>}
+
               </div>
-          </div>
         </div>
       </section>
   )
@@ -64,21 +61,3 @@ const Welcome = () => {
 
 
 export default Welcome
-
-// Put Router URL with path corresponding to each URL endpoint we have
-// /HOME /DRINKS /SAVED /PROFILE
-//     -/home
-//         Home will be used to display the follwing components:
-//             + Welcome.js /////////////////////
-//                 Welcome is a two panel display that consists of:
-//                      +WelcomeDiv that is based off of the user.isAuthenticated
-//                         (!isAuth)
-//                             Login Button
-//                             Description of Website
-//                             Etc?
-//                         (isAuth)
-//                             Welcome User!
-//                             Quick navigation to users most clicked drink?
-//                             etc
-//                      +FeaturedDrinkdiv
-//                         This can just be a random drink
