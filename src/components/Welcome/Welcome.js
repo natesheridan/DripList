@@ -31,7 +31,7 @@ const Welcome = () => {
             </>
             :<>
               <p>Hi {user.given_name}!</p>
-              <p><a href="http://localhost:3000/driplist" className="user-driplist">Visit your saved DripList</a></p>
+              <p><a href="/driplist" className="user-driplist">Visit your saved DripList</a></p>
 
             </>}
         </div>
