@@ -21,8 +21,16 @@
 
 
 ## Demo
-
+![DripList Video Demo](https://media1.giphy.com/media/adR1tHawZVL24MnFjX/giphy.gif?cid=790b7611ca0a0e1063dc3400c0a6e3f2119e236e9e8931af&rid=giphy.gif&ct=g)
+Landing/Login Page:
+![Landing/LoginPage](https://i.imgur.com/vGKAZm5.png)
+This page will show after a user has been authenticated:
+![Landing/Logged In page](https://i.imgur.com/P9TGp1H.png)
+Ingredients / Instructions view: 
+![Recipe Preview](https://i.imgur.com/0dH0FbD.png)
 ## Deploy Link
+ 
+ http://n8.wtf/drip - (redirects to AWS Amplify link)
 
 ## Dev Installation
 
